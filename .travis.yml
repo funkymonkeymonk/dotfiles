@@ -1,0 +1,10 @@
+language: ruby
+
+os:
+  - osx
+
+before install:
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update; brew install ansible; fi
+
+script:
+  - make update run
