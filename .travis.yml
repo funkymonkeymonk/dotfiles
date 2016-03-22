@@ -1,7 +1,4 @@
-language: c
-
-os:
-  - osx
+language: objective-c
 
 before install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update; brew install ansible; fi
