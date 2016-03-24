@@ -1,0 +1,9 @@
+---
+# - name: OSX | Install homebrew
+#   command: ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+- name: OSX | Tap homebrew cask
+  homebrew_tap: tap=caskroom/cask state=present
+
+- name: OSX | Install cask
+  homebrew: name='brew-cask' state=latest update_homebrew=yes

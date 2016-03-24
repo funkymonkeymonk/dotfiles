@@ -14,4 +14,4 @@ install:
 
 script:
   - echo $TRAVIS_OS_NAME
-  - make update run
+  - make run

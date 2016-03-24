@@ -9,10 +9,6 @@ list:
 # required for list
 no_op__:
 
-update:
-	echo "Updating remote-roles"
-	ansible-galaxy install -r requirements.yml -f -n
-
 run:
 	echo "Running ansible playbook"
 	ansible-playbook -i inventory main.yml

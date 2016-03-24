@@ -1,0 +1,13 @@
+---
+
+- name: OSX | Install docker
+  homebrew: name={{ item }} state=latest update_homebrew=yes
+  with_items:
+    - docker
+    - docker-compose
+    - docker-machine
+    - docker-swarm
+    - docker-machine-driver-xhyve
+    
+- name: Add docker dotfile
+  copy: src=docker.dotfile dest=~/.dotfiles/ mode=0644

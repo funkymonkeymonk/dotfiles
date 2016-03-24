@@ -1,0 +1,15 @@
+---
+galaxy_info:
+  author: Will Weaver
+  description: Ansible role for installing entertainment applications
+  license: MIT
+  min_ansible_version: 1.9
+  platforms:
+  - name: OSX
+    versions:
+    - 10.10
+  categories:
+  - system
+# TODO: Add in brew as a dependency
+# dependencies:
+#   - { role: username.common, some_parameter: 3 }

@@ -1,0 +1,11 @@
+---
+
+- name: Add bash dotfile
+  copy: src=bash.dotfile dest=~/.dotfiles/ mode=0644
+
+- name: OSX | Add osx dotfile
+  copy: src=osx.dotfile dest=~/.dotfiles/ mode=0644
+  when: ansible_os_family == "Darwin"
+
+- name: Add git dotfile
+  copy: src=git.dotfile dest=~/.dotfiles/ mode=0644

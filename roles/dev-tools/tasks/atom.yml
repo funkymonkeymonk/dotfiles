@@ -1,0 +1,18 @@
+---
+- name: OSX | Install atom
+  homebrew_cask: name=atom state=present
+
+# apm command source - https://github.com/hnakamur/ansible-role-atom-packages
+- name: Install atom packages
+  apm: name={{item}} state=latest
+  with_items:
+    - ansible-snippets
+    - auto-indent
+    - git-plus
+    - git-projects
+    - language-docker
+    - language-terraform
+    - linter
+    - minimap
+    - minimap-git-diff
+    - travis-ci-status

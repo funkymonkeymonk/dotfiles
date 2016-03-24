@@ -1,0 +1,31 @@
+---
+- name: OSX | Install homebrew applications
+  homebrew: name={{ item }} state=present
+  with_items:
+    - archey
+    - hub
+
+- name: OSX | Install homebrew cask applications
+  homebrew_cask: name={{ item }} state=present
+  with_items:
+    - alfred
+    - caffeine
+    - flycut
+    - flux
+    - google-chrome
+    - iterm2
+    - seil
+    - slack
+    - ubersicht
+
+- name: Add archey configuration
+  copy: src=archey-logo dest=~/.config/ mode=0644
+
+# - name: OSX | install ubersicht plugins
+#   git: repo=https://github.com/funkymonkeymonk/ubersicht-plugins.git dest=~/Library/Application\ Support/Übersicht/widgets/
+
+- name: Add hub dotfile
+  copy: src=hub.dotfile dest=~/.dotfiles/ mode=0644
+
+- name: Add archey dotfile
+  copy: src=archey.dotfile dest=~/.dotfiles/ mode=0644
