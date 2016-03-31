@@ -4,6 +4,7 @@
   with_items:
     - archey
     - hub
+  when: ansible_os_family == 'Darwin'
 
 - name: OSX | Install homebrew cask applications
   homebrew_cask: name={{ item }} state=present
@@ -16,16 +17,23 @@
     - iterm2
     - seil
     - slack
-    - ubersicht
+  when: ansible_os_family == 'Darwin'
+
+- name: Arch | Install applications
+  pacman: name={{ item }} state=latest update_cache=yes
+  with_items:
+    - hub
+    - terminator
+  become: true
+  when: ansible_os_family == 'Archlinux' or ansible_os_family == 'Manjaro Linux'
 
 - name: Add archey configuration
   copy: src=archey-logo dest=~/.config/ mode=0644
-
-# - name: OSX | install ubersicht plugins
-#   git: repo=https://github.com/funkymonkeymonk/ubersicht-plugins.git dest=~/Library/Application\ Support/Übersicht/widgets/
+  when: ansible_os_family == 'Darwin'
 
 - name: Add hub dotfile
   copy: src=hub.dotfile dest=~/.dotfiles/ mode=0644
 
 - name: Add archey dotfile
   copy: src=archey.dotfile dest=~/.dotfiles/ mode=0644
+  when: ansible_os_family == 'Darwin'
