@@ -6,3 +6,4 @@
     - spotify
     - spotify-notifications
     - steam
+  when: ansible_os_family == 'Darwin'
