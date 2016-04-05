@@ -17,7 +17,7 @@ alias dmls='docker-machine ls'
 
 dmenv() {
   if [ -z "$1" ]; then
-    eval "$(docker-machine env dev)"
+    eval "$(docker-machine env default)"
   else
     eval "$(docker-machine env $1)"
   fi
@@ -25,7 +25,7 @@ dmenv() {
 
 dmstart() {
   if [ -z "$1" ]; then
-    docker-machine start dev
+    docker-machine start default
     dmenv
   else
     docker-machine start $1
@@ -37,7 +37,7 @@ alias dmswitch=dmstart
 
 dmcreatevb() {
   if [ -z "$1" ]; then
-    docker-machine create --driver virtualbox dev
+    docker-machine create --driver virtualbox default
     dmswitch
   else
     docker-machine create --driver virtualbox $1
