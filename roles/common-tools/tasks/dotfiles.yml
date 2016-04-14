@@ -9,3 +9,6 @@
 
 - name: Add git dotfile
   copy: src=git.dotfile dest=~/.dotfiles/ mode=0644
+
+- name: Add .gitconfig
+  copy: src=.gitconfig dest=~/ mode=0644

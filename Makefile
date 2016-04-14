@@ -12,3 +12,6 @@ no_op__:
 run:
 	echo "Running ansible playbook"
 	ansible-playbook -i inventory main.yml
+run-arch:
+	echo "Running ansible playbook"
+	sudo ansible-playbook -i inventory -e ansible_python_interpreter=`which python2` main.yml
