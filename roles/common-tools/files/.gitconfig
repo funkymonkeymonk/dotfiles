@@ -1,6 +1,13 @@
 [user]
   name  = Will Weaver
   email = monkey@buildingbananas.com
-
+[core]
+	editor = vim
+[web]
+	browser = google-chrome
 [push]
-  default = simple
+	default = simple
+[color]
+	ui = auto
+[github]
+	user = funkymonkeymonk
