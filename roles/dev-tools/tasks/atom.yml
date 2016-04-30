@@ -9,6 +9,7 @@
 - name: Check if atom is installed
   command: which atom
   register: atom_is_installed
+  ignore_errors: yes
 
 # apm command source - https://github.com/hnakamur/ansible-role-atom-packages
 - name: Install atom packages
@@ -20,7 +21,9 @@
     - language-docker
     - language-terraform
     - linter
+    - markdown-writer
     - minimap
     - minimap-git-diff
+    - script
     - travis-ci-status
   when: atom_is_installed.rc == 0
