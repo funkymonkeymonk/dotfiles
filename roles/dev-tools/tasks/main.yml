@@ -5,7 +5,6 @@
 - include: docker.yml
   when: ansible_os_family == 'Darwin'
 - include: atom.yml
-  when: ansible_os_family == 'Darwin'
 - include: osx-apps.yml
   when: ansible_os_family == 'Darwin'
 

@@ -1,6 +1,14 @@
 ---
 - name: OSX | Install atom
   homebrew_cask: name=atom state=present
+  when: ansible_os_family == 'Darwin'
+
+# Need to figure out how to install atom on arch programmatically
+# Currently manually using the AUR
+
+- name: Check if atom is installed
+  command: which atom
+  register: atom_is_installed
 
 # apm command source - https://github.com/hnakamur/ansible-role-atom-packages
 - name: Install atom packages
@@ -9,10 +17,10 @@
     - ansible-snippets
     - auto-indent
     - git-plus
-    - git-projects
     - language-docker
     - language-terraform
     - linter
     - minimap
     - minimap-git-diff
     - travis-ci-status
+  when: atom_is_installed.rc == 0
