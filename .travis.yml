@@ -10,7 +10,8 @@ matrix:
 
 install:
   - sudo easy_install pip
-  - sudo pip install setuptools ansible
+  - sudo pip install --upgrade setuptools
+  - sudo pip install ansible
 
 script:
   - echo $TRAVIS_OS_NAME
