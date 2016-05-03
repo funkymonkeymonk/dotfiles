@@ -20,6 +20,7 @@
     - ensime
     - git-plus
     - language-docker
+    - language-scala
     - language-terraform
     - linter
     - markdown-writer
