@@ -1,0 +1,12 @@
+- name: OSX | Install scala
+  homebrew: name={{ item }} state=latest update_homebrew=yes
+  with_items:
+    - scala
+    - sbt
+  when: ansible_os_family == 'Darwin'
+
+#- name: Arch | Install scala
+
+- name: Add scala plugins
+  copy: src=plugins.sbt dest=~/.sbt/0.13/plugins/ mode=0644
+
