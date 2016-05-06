@@ -8,6 +8,16 @@
     - docker-machine
     - docker-swarm
     - docker-machine-driver-xhyve
-    
+  when: ansible_os_family == 'Darwin'
+
+- name: Arch | Install applications
+  pacman: name={{ item }} state=latest update_cache=yes
+  with_items:
+    - docker
+    - docker-compose
+    - docker-machine
+  become: true
+  when: ansible_os_family == 'Archlinux' or ansible_os_family == 'Manjaro Linux'
+
 - name: Add docker dotfile
   copy: src=docker.dotfile dest=~/.dotfiles/ mode=0644
