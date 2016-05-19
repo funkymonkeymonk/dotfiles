@@ -10,7 +10,7 @@ matrix:
 
 install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update && brew install ansible; fi
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo easy_install pip && pip install --upgrade setuptools && pip install ansible; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo pip install --upgrade pip setuptools ansible; fi
 
 script:
   - make run
