@@ -20,4 +20,4 @@ run-arch:
 arch-container:
 	echo "Creating arch linux container"
 	docker build -t buildingbananas/arch .
-	docker run -it -v $(PWD):/test/ buildingbananas/arch bash
+	docker run --rm -it buildingbananas/arch

@@ -1,14 +1,16 @@
-FROM base/archlinux
+FROM nfnty/arch-mini
 
-# RUN pacman --noconfirm -Syyu && \
-#     pacman --noconfirm -S ansible && \
-#     adduser monkey
-#     ADD MONKEY AS SUDO USER
+RUN pacman --noconfirm -Syy archlinux-keyring && \
+    pacman --noconfirm -Su base-devel ansible && \
+    pacman-db-upgrade && \
+    useradd -m -G wheel -s /bin/bash monkey && \
+    sed -Ei 's/^# (%wheel.*NOPASSWD.*)/\1/' /etc/sudoers
 
-ADD . /usr/src/ansible-provisioner/
-# WORKDIR /usr/src/ansible-provisioner
-# RUN make run-arch
+COPY . /usr/src/ansible-provisioner/
+WORKDIR /usr/src/ansible-provisioner
+RUN chmod -R 0777 /usr/src/ansible-provisioner
 
-# WORKDIR /home/monkey
-# USER monkey
-CMD /bin/bash
+USER monkey
+RUN make run-arch
+# CMD run tests
+CMD echo success

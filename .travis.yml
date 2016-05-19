@@ -13,4 +13,5 @@ install:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo pip install --upgrade pip setuptools ansible; fi
 
 script:
-  - make run
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then make run; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then make arch-container; fi
