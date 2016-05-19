@@ -10,7 +10,6 @@ matrix:
 
 install:
   - sudo easy_install pip
-  - sudo pip install --upgrade setuptools
   - sudo pip install ansible
 
 script:
