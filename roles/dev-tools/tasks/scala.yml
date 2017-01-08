@@ -15,3 +15,16 @@
 
 - name: Add scala plugins
   copy: src=plugins.sbt dest=~/.sbt/0.13/plugins/ mode=0644
+
+- name: Check if atom is installed
+  command: which atom
+  register: atom_is_installed
+  ignore_errors: yes
+
+- name: Install atom packages
+  apm: name={{item}} state=latest
+  with_items:
+    - ensime
+    - language-scala
+    - scala-format
+  when: atom_is_installed.rc == 0

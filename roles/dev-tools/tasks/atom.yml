@@ -22,16 +22,13 @@
   with_items:
     - ansible-snippets
     - auto-indent
-    - ensime
     - git-plus
     - language-docker
-    - language-scala
     - language-terraform
     - linter
     - markdown-writer
     - minimap
     - minimap-git-diff
-    - scala-format
     - script
     - travis-ci-status
   when: atom_is_installed.rc == 0
