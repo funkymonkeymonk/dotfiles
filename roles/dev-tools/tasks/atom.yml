@@ -3,6 +3,11 @@
   homebrew_cask: name=atom state=present
   when: ansible_os_family == 'Darwin'
 
+- name: Arch | Install atom
+  pacman: name=atom state=latest update_cache=yes
+  become: true
+  when: ansible_os_family == 'Archlinux' or ansible_os_family == 'Manjaro Linux'
+
 # Need to figure out how to install atom on arch programmatically
 # Currently manually using the AUR
 
