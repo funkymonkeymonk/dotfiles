@@ -1,4 +1,3 @@
-PS1='\h:\W \u\$ '
 alias cls='clear;ls'
 alias ..='cd ..'
 alias ll='ls -la'

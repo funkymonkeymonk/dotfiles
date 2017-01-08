@@ -24,6 +24,7 @@
   with_items:
     - hub
     - terminator
+    - xclip
   become: true
   when: ansible_os_family == 'Archlinux' or ansible_os_family == 'Manjaro Linux'
 
