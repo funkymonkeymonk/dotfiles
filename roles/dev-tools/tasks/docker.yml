@@ -1,14 +1,14 @@
 ---
 
-- name: OSX | Install docker
-  homebrew: name={{ item }} state=latest update_homebrew=yes
-  with_items:
-    - docker
-    - docker-compose
-    - docker-machine
-    - docker-swarm
-    - docker-machine-driver-xhyve
-  when: ansible_os_family == 'Darwin'
+#- name: OSX | Install docker
+#  homebrew: name={{ item }} state=latest update_homebrew=yes
+#  with_items:
+#    - docker
+#    - docker-compose
+#    - docker-machine
+#    - docker-swarm
+#    - docker-machine-driver-xhyve
+#  when: ansible_os_family == 'Darwin'
 
 - name: Arch | Install applications
   pacman: name={{ item }} state=latest update_cache=yes
