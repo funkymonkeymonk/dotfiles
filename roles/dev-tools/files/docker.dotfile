@@ -61,5 +61,6 @@ alias ruby-dev='docker run -it --rm -v $(HOME):/root -v `pwd`:/usr/src/app -w /u
 alias python2-dev='docker run -it --rm -v $(HOME):/root -v `pwd`:/usr/src/app -w /usr/src/app python:2 /bin/bash'
 alias python3-dev='docker run -it --rm -v $(HOME):/root -v `pwd`:/usr/src/app -w /usr/src/app python:3 /bin/bash'
 alias node-dev='docker run -it --rm -v $(HOME):/root -v `pwd`:/usr/src/app -w /usr/src/app node /bin/bash'
+alias nginx-dev='docker run -it --rm -v `pwd`:/usr/share/nginx/html:ro -P nginx'
 
 dmenv > /dev/null 2>&1
