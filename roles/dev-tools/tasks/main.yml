@@ -8,6 +8,7 @@
 - include: docker.yml
 - include: atom.yml
 # - include: scala.yml
+- include: clojure.yml
 
 - name: Ensure everything in ~/.dotfiles/ is sourced in ~/.bash_profile
   lineinfile: dest=~/.bash_profile create=yes line='for file in ~/.dotfiles/*; do if [ -f "$file" ]; then . $file; fi; done'

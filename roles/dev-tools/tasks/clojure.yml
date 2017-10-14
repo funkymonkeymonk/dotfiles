@@ -1,0 +1,20 @@
+- name: OSX | Install Clojure
+  homebrew: name={{ item }} state=latest update_homebrew=yes
+  with_items:
+    - leiningen
+    - candid82/brew/joker
+  when: ansible_os_family == 'Darwin'
+
+- name: Check if atom is installed
+  command: which atom
+  register: atom_is_installed
+  ignore_errors: yes
+
+- name: Install atom packages
+  apm: name={{item}} state=latest
+  with_items:
+    - parinfer
+    - lisp-paredit
+    - linter-joker
+    - proto-repl
+  when: atom_is_installed.rc == 0
