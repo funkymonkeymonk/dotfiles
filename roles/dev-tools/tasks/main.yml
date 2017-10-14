@@ -1,7 +1,7 @@
 ---
 
-- include: virtualbox.yml
-  when: ansible_os_family == 'Darwin'
+# - include: virtualbox.yml
+#   when: ansible_os_family == 'Darwin'
 - include: osx-apps.yml
   when: ansible_os_family == 'Darwin'
 

@@ -1,14 +1,9 @@
 ---
-
-#- name: OSX | Install docker
-#  homebrew: name={{ item }} state=latest update_homebrew=yes
-#  with_items:
-#    - docker
-#    - docker-compose
-#    - docker-machine
-#    - docker-swarm
-#    - docker-machine-driver-xhyve
-#  when: ansible_os_family == 'Darwin'
+- name: OSX | Install docker via cask
+  homebrew_cask: name={{ item }} state=present
+ with_items:
+   - docker
+ when: ansible_os_family == 'Darwin'
 
 - name: Arch | Install applications
   pacman: name={{ item }} state=latest update_cache=yes
@@ -18,6 +13,18 @@
     - docker-machine
   become: true
   when: ansible_os_family == 'Archlinux' or ansible_os_family == 'Manjaro Linux'
+
+- name: Check if atom is installed
+  command: which atom
+  register: atom_is_installed
+  ignore_errors: yes
+
+# apm command source - https://github.com/hnakamur/ansible-role-atom-packages
+- name: Install atom packages
+  apm: name={{item}} state=latest
+  with_items:
+    - language-docker
+  when: atom_is_installed.rc == 0
 
 - name: Add docker dotfile
   copy: src=docker.dotfile dest=~/.dotfiles/ mode=0644

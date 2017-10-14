@@ -4,9 +4,12 @@
   homebrew: name={{ item }} state=latest update_homebrew=yes
   with_items:
     - awscli
-    - heroku-toolbelt
+    - bind
+    - httpie
+    - terraform
 
 - name: OSX | Install cask apps
   homebrew_cask: name={{ item }} state=present
   with_items:
     - gitup
+    - unity

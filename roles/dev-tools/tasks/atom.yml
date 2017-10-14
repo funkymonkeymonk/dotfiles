@@ -23,7 +23,6 @@
     - ansible-snippets
     - auto-indent
     - git-plus
-    - language-docker
     - language-terraform
     - linter
     - markdown-writer
