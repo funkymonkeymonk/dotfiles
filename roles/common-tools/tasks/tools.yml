@@ -19,8 +19,6 @@
     - iterm2
     - sketchup
     - slack
-    - spotify
-    - steam
     - twitterrific
     - zazu
   when: ansible_os_family == 'Darwin'
