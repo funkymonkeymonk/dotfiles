@@ -1,17 +1,21 @@
 ---
 - name: OSX | Install homebrew applications
   homebrew: name={{ item }} state=present
+  ignore_errors: yes
   with_items:
     - hub
     - jq
     - tree
     - watch
     - wget
+
   when: ansible_os_family == 'Darwin'
 
 - name: OSX | Install homebrew cask applications
   homebrew_cask: name={{ item }} state=present
+  ignore_errors: yes
   with_items:
+    - 1password
     - caffeine
     - flux
     - gimp

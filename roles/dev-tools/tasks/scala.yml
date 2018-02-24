@@ -1,5 +1,6 @@
 - name: OSX | Install scala
   homebrew: name={{ item }} state=latest update_homebrew=yes
+  ignore_errors: yes
   with_items:
     - scala
     - sbt

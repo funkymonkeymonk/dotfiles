@@ -1,6 +1,7 @@
 ---
 - name: OSX | Install docker via cask
   homebrew_cask: name=docker state=present
+  ignore_errors: yes
   when: ansible_os_family == 'Darwin'
 
 - name: Arch | Install applications

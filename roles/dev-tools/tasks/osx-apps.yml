@@ -2,6 +2,7 @@
 
 - name: OSX | Install apps
   homebrew: name={{ item }} state=latest update_homebrew=yes
+  ignore_errors: yes
   with_items:
     - awscli
     - bind
@@ -10,6 +11,7 @@
 
 - name: OSX | Install cask apps
   homebrew_cask: name={{ item }} state=present
+  ignore_errors: yes
   with_items:
     - gitup
     - unity
