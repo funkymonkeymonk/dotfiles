@@ -1,31 +1,22 @@
 - name: OSX | Install scala
-  homebrew: name={{ item }} state=latest update_homebrew=yes
+  homebrew:
+    name:
+      - scala
+      - sbt
+    state: latest
+    update_homebrew: yes
   ignore_errors: yes
-  with_items:
-    - scala
-    - sbt
   when: ansible_os_family == 'Darwin'
 
 - name: Arch | Install scala
-  pacman: name={{ item }} state=latest update_cache=yes
-  with_items:
-    - scala
-    - sbt
+  pacman:
+    name:
+      - scala
+      - sbt
+    state: latest
+    update_cache: yes
   become: true
   when: ansible_os_family == 'Archlinux' or ansible_os_family == 'Manjaro Linux'
 
 - name: Add scala plugins
   copy: src=plugins.sbt dest=~/.sbt/0.13/plugins/ mode=0644
-
-- name: Check if atom is installed
-  command: which atom
-  register: atom_is_installed
-  ignore_errors: yes
-
-- name: Install atom packages
-  apm: name={{item}} state=latest
-  with_items:
-    - ensime
-    - language-scala
-    - scala-format
-  when: atom_is_installed.rc == 0

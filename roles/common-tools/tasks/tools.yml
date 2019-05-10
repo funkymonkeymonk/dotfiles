@@ -1,38 +1,41 @@
 ---
 - name: OSX | Install homebrew applications
-  homebrew: name={{ item }} state=present
+  homebrew:
+    name:
+      - hub
+      - jq
+      - tree
+      - watch
+      - wget
+    state: present
   ignore_errors: yes
-  with_items:
-    - hub
-    - jq
-    - tree
-    - watch
-    - wget
 
   when: ansible_os_family == 'Darwin'
 
 - name: OSX | Install homebrew cask applications
-  homebrew_cask: name={{ item }} state=present
+  homebrew_cask:
+    name:
+      - 1password
+      - caffeine
+      - flux
+      - gimp
+      - google-chrome
+      - iterm2
+      - signal
+      - sketchup
+      - slack
+    state: present
   ignore_errors: yes
-  with_items:
-    - 1password
-    - caffeine
-    - flux
-    - gimp
-    - google-chrome
-    - iterm2
-    - signal
-    - sketchup
-    - slack
-    - zazu
   when: ansible_os_family == 'Darwin'
 
 - name: Arch | Install applications
-  pacman: name={{ item }} state=latest update_cache=yes
-  with_items:
-    - hub
-    - terminator
-    - xclip
+  pacman:
+    name:
+      - hub
+      - terminator
+      - xclip
+    state: latest
+    update_cache: yes
   become: true
   when: ansible_os_family == 'Archlinux' or ansible_os_family == 'Manjaro Linux'
 

@@ -1,14 +1,9 @@
 ---
 
-# - include: virtualbox.yml
-#   when: ansible_os_family == 'Darwin'
 - include_tasks: osx-apps.yml
   when: ansible_os_family == 'Darwin'
 
 - include_tasks: docker.yml
-- include_tasks: atom.yml
-# - include_tasks: scala.yml
-- include_tasks: clojure.yml
 
 - name: Ensure everything in ~/.dotfiles/ is sourced in ~/.bash_profile
   lineinfile: dest=~/.bash_profile create=yes line='for file in ~/.dotfiles/*; do if [ -f "$file" ]; then . $file; fi; done'

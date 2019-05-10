@@ -1,9 +1,10 @@
 ---
 
 - name: OSX | Install cask apps
-  homebrew_cask: name={{ item }} state=present
-  with_items:
-    - spotify
-    - spotify-notifications
-    - steam
+  homebrew_cask:
+    name:
+      - spotify
+      - spotify-notifications
+      - steam
+    state: present
   when: ansible_os_family == 'Darwin'
