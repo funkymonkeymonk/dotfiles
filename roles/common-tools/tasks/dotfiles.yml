@@ -7,10 +7,6 @@
   copy: src=osx.dotfile dest=~/.dotfiles/ mode=0644
   when: ansible_os_family == "Darwin"
 
-- name: Arch | Add linux dotfile
-  copy: src=linux.dotfile dest=~/.dotfiles/ mode=0644
-  when: ansible_os_family == 'Archlinux' or ansible_os_family == 'Manjaro Linux'
-
 - name: Add git dotfile
   copy: src=git.dotfile dest=~/.dotfiles/ mode=0644
 

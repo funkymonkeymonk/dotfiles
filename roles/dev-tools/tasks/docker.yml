@@ -3,14 +3,3 @@
   homebrew_cask: name=docker state=present
   ignore_errors: yes
   when: ansible_os_family == 'Darwin'
-
-- name: Arch | Install applications
-  pacman:
-    name:
-      - docker
-      - docker-compose
-      - docker-machine
-    state: latest
-    update_cache: yes
-  become: true
-  when: ansible_os_family == 'Archlinux' or ansible_os_family == 'Manjaro Linux'

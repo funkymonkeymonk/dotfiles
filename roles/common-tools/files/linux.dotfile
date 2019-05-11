@@ -1,2 +1,0 @@
-alias pbcopy='xclip -i -sel c -f |xclip -i -sel p'
-alias pbpaste='xclip -selection clipboard -o'

@@ -28,16 +28,5 @@
   ignore_errors: yes
   when: ansible_os_family == 'Darwin'
 
-- name: Arch | Install applications
-  pacman:
-    name:
-      - hub
-      - terminator
-      - xclip
-    state: latest
-    update_cache: yes
-  become: true
-  when: ansible_os_family == 'Archlinux' or ansible_os_family == 'Manjaro Linux'
-
 - name: Add hub dotfile
   copy: src=hub.dotfile dest=~/.dotfiles/ mode=0644

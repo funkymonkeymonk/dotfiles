@@ -11,3 +11,7 @@
 	ui = auto
 [github]
 	user = funkymonkeymonk
+[alias]
+    co = checkout
+    up = pull --rebase --prune
+    

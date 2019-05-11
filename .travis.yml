@@ -2,9 +2,6 @@ language: ruby
 
 matrix:
   include:
-    - os: linux
-      dist: trusty
-      sudo: required
     - os: osx
 
 install:
@@ -12,4 +9,3 @@ install:
 
 script:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then make run; fi
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then make arch-container; fi
