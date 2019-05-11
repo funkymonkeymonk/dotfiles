@@ -4,6 +4,7 @@
     name:
       - hub
       - jq
+      - spark
       - tree
       - watch
       - wget
@@ -16,6 +17,7 @@
   homebrew_cask:
     name:
       - 1password
+      - bitbar
       - caffeine
       - flux
       - gimp
@@ -27,6 +29,9 @@
     state: present
   ignore_errors: yes
   when: ansible_os_family == 'Darwin'
+
+- name: Add bitbar plugins
+  copy: src=bitbar dest=~/ mode=0744
 
 - name: Add hub dotfile
   copy: src=hub.dotfile dest=~/.dotfiles/ mode=0644

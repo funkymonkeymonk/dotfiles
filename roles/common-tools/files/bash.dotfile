@@ -1,7 +1,7 @@
-alias cls='clear;ls'
 alias ..='cd ..'
 alias ll='ls -la'
 alias lrat='ls -lrat'
+alias clear='echo USE CTRL + L'
 
 disk-usage() {
   path=${1-${PWD}}
