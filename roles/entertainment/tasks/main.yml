@@ -4,7 +4,6 @@
   homebrew_cask:
     name:
       - spotify
-      - spotify-notifications
       - steam
     state: present
   when: ansible_os_family == 'Darwin'
