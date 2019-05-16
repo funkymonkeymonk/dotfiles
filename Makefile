@@ -12,3 +12,7 @@ no_op__:
 run:
 	echo "Running ansible playbook"
 	ansible-playbook -i inventory main.yml
+
+lint:
+	pip install ansible-lint
+	ansible-lint main.yml
