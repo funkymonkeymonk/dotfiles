@@ -2,6 +2,8 @@
 - name: OSX | Install homebrew applications
   homebrew:
     name:
+      - git
+      - glances
       - hub
       - jq
       - spark
@@ -10,7 +12,6 @@
       - wget
     state: present
   ignore_errors: yes
-
   when: ansible_os_family == 'Darwin'
 
 - name: OSX | Install homebrew cask applications
