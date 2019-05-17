@@ -1,9 +1,0 @@
----
-
-- name: OSX | Install cask apps
-  homebrew_cask:
-    name:
-      - spotify
-      - steam
-    state: present
-  when: ansible_os_family == 'Darwin'
