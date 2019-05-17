@@ -9,13 +9,3 @@
       - terraform
     state: latest
     update_homebrew: yes
-  ignore_errors: yes
-
-
-- name: OSX | Install cask apps
-  homebrew_cask:
-    name:
-      - gitup
-      - unity
-    state: present
-  ignore_errors: yes

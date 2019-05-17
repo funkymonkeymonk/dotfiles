@@ -10,7 +10,7 @@
       - tree
       - watch
       - wget
-    state: present
+    state: latest
   ignore_errors: yes
   when: ansible_os_family == 'Darwin'
 
@@ -22,12 +22,18 @@
       - caffeine
       - flux
       - gimp
-      - google-chrome
       - iterm2
       - signal
       - sketchup
+    state: upgraded
+  when: ansible_os_family == 'Darwin'
+
+- name: OSX | Install apps managed by my work via cask if not installed
+  homebrew_cask:
+    name:
+      - google-chrome
       - slack
-    state: present
+    state: upgraded
   ignore_errors: yes
   when: ansible_os_family == 'Darwin'
 
