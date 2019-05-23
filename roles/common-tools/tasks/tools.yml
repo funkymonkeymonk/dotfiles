@@ -23,6 +23,7 @@
       - flux
       - gimp
       - iterm2
+      - rocket
       - signal
       - sketchup
     state: upgraded

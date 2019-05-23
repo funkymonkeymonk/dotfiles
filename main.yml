@@ -11,3 +11,12 @@
   roles:
     - common-tools
     - dev-tools
+
+  tasks:
+    - name: Show installed homebrew packages
+      command: "brew leaves"
+      register: brew_leaves_output
+      when: ansible_os_family == 'Darwin'
+
+    - debug:
+        var: brew_leaves_output.stdout
