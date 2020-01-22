@@ -15,21 +15,3 @@ cask "iterm2"
 cask "rectangle"
 cask "signal"
 cask "station"
-
-# Development tools
-brew "ansible"
-brew "awscli"
-brew "bind"
-brew "git"
-brew "glances"
-brew "httpie"
-brew "hub"
-brew "jq"
-brew "spark"
-brew "tree"
-brew "watch"
-brew "wget"
-cask "visual-studio-code"
-
-# Entertianment
-cask "steam"
