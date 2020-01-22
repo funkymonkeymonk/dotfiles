@@ -5,7 +5,7 @@ matrix:
     - os: osx
 
 install:
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update && brew install ansible; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update && brew bundle; fi
 
 script:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then make run; fi

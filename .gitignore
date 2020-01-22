@@ -1,2 +1,4 @@
 main.retry
 .idea
+*.swp
+Brewfile.lock.json
