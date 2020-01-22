@@ -1,4 +1,0 @@
----
-- name: OSX | Install docker via cask
-  homebrew_cask: name=docker state=upgraded
-  when: ansible_os_family == 'Darwin'

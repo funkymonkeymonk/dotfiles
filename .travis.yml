@@ -4,8 +4,5 @@ matrix:
   include:
     - os: osx
 
-install:
-  - brew update && brew bundle
-
 script:
   - make run

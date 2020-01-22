@@ -10,9 +10,7 @@ list:
 no_op__:
 
 run:
-	echo "Running ansible playbook"
-	ansible-playbook -i inventory main.yml
+	brew bundle
 
-lint:
-	pip install ansible-lint
-	ansible-lint main.yml
+diff:
+	brew bundle cleanup
