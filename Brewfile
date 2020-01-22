@@ -1,3 +1,2 @@
-brew "ansible"
-
 tap "homebrew/cask"
+brew "ansible"
