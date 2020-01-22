@@ -11,8 +11,18 @@ list:
 # required for list
 no_op__:
 
-run:
+__setup-dock:
+	# Only show running applications in the dock
+	defaults write com.apple.dock static-only -bool TRUE
+	# Autohide the dock
+	defaults write com.apple.dock autohide -bool TRUE
+	# Restart dock
+	killall Dock
+
+__brew:
 	cat $(FILES) | brew bundle --file=-
+
+run: __brew __setup-dock
 
 cleanup:
 	cat $(FILES) | brew bundle cleanup --file=-
