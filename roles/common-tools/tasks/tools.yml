@@ -23,9 +23,8 @@
       - flux
       - gimp
       - iterm2
-      - rocket
+      - rectangle
       - signal
-      - sketchup
     state: upgraded
   when: ansible_os_family == 'Darwin'
 
@@ -33,7 +32,6 @@
   homebrew_cask:
     name:
       - google-chrome
-      - slack
     state: upgraded
   ignore_errors: yes
   when: ansible_os_family == 'Darwin'
