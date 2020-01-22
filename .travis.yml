@@ -5,7 +5,7 @@ matrix:
     - os: osx
 
 install:
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update && brew bundle; fi
+  - brew update && brew bundle
 
 script:
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then make run; fi
+  - make run

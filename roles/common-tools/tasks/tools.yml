@@ -25,6 +25,7 @@
       - iterm2
       - rectangle
       - signal
+      - station
     state: upgraded
   when: ansible_os_family == 'Darwin'
 
