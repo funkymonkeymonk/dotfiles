@@ -1,2 +1,4 @@
 # Entertianment
 cask "steam"
+cask "discord"
+cask "spotify"

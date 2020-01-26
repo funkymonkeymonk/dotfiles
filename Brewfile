@@ -3,6 +3,7 @@ tap "homebrew/cask"
 tap "homebrew/core"
 
 # Common tools
+brew "mas"
 cask "1password"
 cask "bitbar"
 cask "caffeine"
@@ -15,3 +16,6 @@ cask "iterm2"
 cask "rectangle"
 cask "signal"
 cask "station"
+
+# Appstore
+mas "Spark", id: 1176895641
