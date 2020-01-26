@@ -1,4 +1,5 @@
-FILES=Brewfile Brewfile.development Brewfile.entertainment
+FILES=`cat env`
+.PHONY: env
 
 list:
 	@sh -c "$(MAKE) -p no_op__ | \
@@ -21,6 +22,9 @@ __setup-dock:
 
 __brew:
 	cat $(FILES) | brew bundle --file=-
+
+env:
+	@echo $(FILES)
 
 run: __brew __setup-dock
 

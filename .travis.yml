@@ -5,4 +5,5 @@ matrix:
     - os: osx
 
 script:
+  - mv env.example env
   - make run

@@ -2,3 +2,4 @@ main.retry
 .idea
 *.swp
 *.lock.json
+env
