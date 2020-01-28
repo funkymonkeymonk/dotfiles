@@ -23,10 +23,15 @@ __setup-dock:
 __brew:
 	cat $(FILES) | brew bundle --file=-
 
+__bitbar:
+	rsync -r ./files/bitbar ~
+
+__copy-files: __bitbar
+
 env:
 	@echo $(FILES)
 
-run: __brew __setup-dock
+run: __brew __copy-files __setup-dock 
 
 cleanup:
 	cat $(FILES) | brew bundle cleanup --file=-
