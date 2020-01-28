@@ -12,28 +12,31 @@
 [github]
 	user = funkymonkeymonk
 [alias]
-      a = add
-      aa = add .
-      aaa = add --update
-      b = branch
-      bd = branch --delete
-      c = commit
-      cm = commit --message
-      co = checkout
-      cob = checkout -b
-      com = checkout master
-      d = diff
-      da = diff HEAD
-      i = init
-      lg = log --graph --oneline --decorate --all
-      ld = git log --pretty=format:"%h %ad %s" --date=short --all
-      p = push
-      s = status
-      st = stash
-      sta = stash apply
-      std = stash drop
-      stl = stash list
-      stp = stash pop
-      sts = stash save
-      up = pull --rebase --prune
-    
+  a = add
+  aa = add .
+  aaa = add --update
+  b = branch
+  bd = branch --delete
+  c = commit
+  cm = commit --message
+  co = checkout
+  cob = checkout -b
+  com = checkout master
+  d = diff
+  da = diff HEAD
+  i = init
+  lg = log --graph --oneline --decorate --all
+  ld = git log --pretty=format:"%h %ad %s" --date=short --all
+  p = push
+  s = status
+  st = stash
+  sta = stash apply
+  std = stash drop
+  stl = stash list
+  stp = stash pop
+  sts = stash save
+  up = pull --rebase --prune
+[hub]
+  protocol = https
+[credential]
+  helper = osxkeychain

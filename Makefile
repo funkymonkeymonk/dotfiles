@@ -9,6 +9,7 @@ list:
 		grep -v 'make\[1\]' | \
 		grep -v 'Makefile' | \
 		sort"
+
 # required for list
 no_op__:
 
@@ -26,7 +27,13 @@ __brew:
 __bitbar:
 	rsync -r ./files/bitbar ~
 
-__copy-files: __bitbar
+__gitconfig:
+	# This could use a more complex merge strategy but this will
+	# prevent me from blowing away local changes
+	rsync --ignore-existing ./files/.gitconfig ~/.gitconfig
+
+
+__copy-files: __bitbar __gitconfig
 
 env:
 	@echo $(FILES)
