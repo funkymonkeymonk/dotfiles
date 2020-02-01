@@ -3,6 +3,7 @@ tap "homebrew/cask"
 tap "homebrew/core"
 
 # Common tools
+brew "antigen"
 brew "mas"
 cask "1password"
 cask "bitbar"

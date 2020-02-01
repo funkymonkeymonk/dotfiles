@@ -32,8 +32,12 @@ __gitconfig:
 	# prevent me from blowing away local changes
 	rsync --ignore-existing ./files/.gitconfig ~/.gitconfig
 
+__zshrc:
+	# This could use a more complex merge strategy but this will
+	# prevent me from blowing away local changes
+	rsync --ignore-existing ./files/.zshrc ~/.zshrc
 
-__copy-files: __bitbar __gitconfig
+__copy-files: __bitbar __gitconfig __zshrc
 
 env:
 	@echo $(FILES)
