@@ -6,17 +6,15 @@ tap "homebrew/core"
 brew "antigen"
 brew "mas"
 cask "1password"
+cask "amethyst"
 cask "bitbar"
 cask "caffeine"
 cask "docker"
-cask "flux"
 cask "inkscape"
 cask "gimp"
 cask "google-chrome"
 cask "iterm2"
-cask "rectangle"
 cask "signal"
-cask "station"
 
 # Appstore
 mas "Spark", id: 1176895641
