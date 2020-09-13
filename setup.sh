@@ -1,6 +1,9 @@
 #!/usr/bin/env sh
 set -e
 
+# Setup ssh-key if it doesn't already exist
+ssh-keygen -t rsa -b 4096 -C "williamdweaver@gmail.com" -f $HOME/.ssh/id_rsa
+
 # Install homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
