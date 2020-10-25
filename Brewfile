@@ -15,6 +15,7 @@ cask "gimp"
 cask "google-chrome"
 cask "iterm2"
 cask "signal"
+cask "notion"
 
 # Appstore
 mas "Spark", id: 1176895641
