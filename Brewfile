@@ -5,6 +5,7 @@ tap "homebrew/core"
 # Common tools
 brew "antigen"
 brew "mas"
+brew "bat"
 cask "1password"
 cask "amethyst"
 cask "bitbar"
