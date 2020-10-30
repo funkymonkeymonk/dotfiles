@@ -17,6 +17,8 @@ cask "google-chrome"
 cask "iterm2"
 cask "signal"
 cask "notion"
+cask "bartender"
+cask "webviewscreensaver"
 
 # Appstore
 mas "Spark", id: 1176895641
