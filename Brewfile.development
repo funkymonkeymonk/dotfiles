@@ -2,6 +2,7 @@
 brew "ansible"
 brew "awscli"
 brew "bind"
+brew "exercism"
 brew "git"
 brew "glances"
 brew "httpie"
