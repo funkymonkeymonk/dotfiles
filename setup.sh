@@ -1,10 +1,10 @@
 #!/usr/bin/env sh
 set -e
-function install_homebrew() {
+install_homebrew() {
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 }
 
-function setup_project_directory() {
+setup_project_directory() {
   # Create the Projects directory if it doesn't exist
   mkdir -p ~/Projects
   pushd ~/Projects
@@ -20,7 +20,7 @@ function setup_project_directory() {
   popd
 }
 
-function build_environment_list() {
+build_environment_list() {
   # TODO: Add an all option
   options=(`ls Brewfile.* | grep -v site-specific | grep -v *.json`)
   touch Brewfile.site-specific
@@ -58,7 +58,7 @@ function build_environment_list() {
   mv temp env
 }
 
-function run_install() {
+run_install() {
   echo "Starting install now"
   make run
 }
