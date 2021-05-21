@@ -1,6 +1,4 @@
 # Development tools
-tap "adoptopenjdk/openjdk"
-
 brew "ansible"
 brew "awscli"
 brew "bind"
