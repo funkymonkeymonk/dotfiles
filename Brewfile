@@ -18,8 +18,8 @@ cask "rectangle"
 cask "signal"
 cask "notion"
 cask "bartender"
-cask "webviewscreensaver"
 cask "vivaldi"
+cask "divvy"
+cask "alfred"
+cask "spotify"
 
-# Appstore
-mas "Spark", id: 1176895641
