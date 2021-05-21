@@ -2,4 +2,5 @@ main.retry
 .idea
 *.swp
 *.lock.json
+Brewfile.site-specific
 env
