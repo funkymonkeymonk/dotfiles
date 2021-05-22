@@ -37,12 +37,18 @@ __zshrc:
 	# prevent me from blowing away local changes
 	rsync --ignore-existing ./files/.zshrc ~/.zshrc
 
-__copy-files: __bitbar __gitconfig __zshrc
+# Someday I will probably make a change and this will override it.
+# TODO: Request permission before overwriting
+__install_divvy_preferences:
+	open `cat ./files/divvy_preferences`
+	osascript -e 'tell application "Divvy" to quit' -e 'delay 2' -e 'tell application "Divvy" to activate'
+
+__copy-files: __bitbar __gitconfig __zshrc __install_divvy_preferences
 
 env:
 	@echo $(FILES)
 
-run: __brew __copy-files __setup-dock 
+run: __brew __copy-files __setup-dock
 
 cleanup:
 	cat $(FILES) | brew bundle cleanup --file=-
