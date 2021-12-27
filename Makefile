@@ -21,6 +21,11 @@ __setup-dock:
 	# Restart dock
 	killall Dock
 
+__setup-screenshot-location:
+	# Configure screenshots to save to
+	mkdir -p ~/Pictures/Screenshots/
+	defaults write com.apple.screencapture location "~/Pictures/Screenshots"
+
 __brew:
 	cat $(FILES) | brew bundle --file=-
 
@@ -41,14 +46,14 @@ __zshrc:
 # TODO: Request permission before overwriting
 __install_divvy_preferences:
 	open `cat ./files/divvy_preferences`
-	osascript -e 'tell application "Divvy" to quit' -e 'delay 2' -e 'tell application "Divvy" to activate'
+	#osascript -e 'tell application "Divvy" to quit' -e 'delay 2' -e 'tell application "Divvy" to activate'
 
 __copy-files: __bitbar __gitconfig __zshrc __install_divvy_preferences
 
 env:
 	@echo $(FILES)
 
-run: __brew __copy-files __setup-dock
+run: __brew __copy-files __setup-dock __setup-screenshot-location
 
 cleanup:
 	cat $(FILES) | brew bundle cleanup --file=-
