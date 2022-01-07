@@ -26,6 +26,13 @@ __setup-screenshot-location:
 	mkdir -p ~/Pictures/Screenshots/
 	defaults write com.apple.screencapture location "~/Pictures/Screenshots"
 
+__setup-finder:
+	# Configure finder to show the path
+	defaults write com.apple.finder ShowPathbar -bool true
+	killall Finder
+
+__osx-preferences: __setup-dock __setup-screenshot-location __setup-finder
+
 __brew:
 	cat $(FILES) | brew bundle --file=-
 
@@ -53,7 +60,7 @@ __copy-files: __bitbar __gitconfig __zshrc __install_divvy_preferences
 env:
 	@echo $(FILES)
 
-run: __brew __copy-files __setup-dock __setup-screenshot-location
+run: __brew __copy-files __osx-preferences
 
 cleanup:
 	cat $(FILES) | brew bundle cleanup --file=-
