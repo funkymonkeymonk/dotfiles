@@ -36,8 +36,10 @@ __osx-preferences: __setup-dock __setup-screenshot-location __setup-finder
 __brew:
 	cat $(FILES) | brew bundle --file=-
 
-__bitbar:
-	rsync -r ./files/bitbar ~
+__xbar:
+	rsync -r ./files/xbar/ ~/Library/Application\ Support/xbar/plugins
+	# Refresh xbar
+	open xbar://app.xbarapp.com/refreshAllPlugins
 
 __gitconfig:
 	# This could use a more complex merge strategy but this will
@@ -55,7 +57,7 @@ __install_divvy_preferences:
 	open `cat ./files/divvy_preferences`
 	#osascript -e 'tell application "Divvy" to quit' -e 'delay 2' -e 'tell application "Divvy" to activate'
 
-__copy-files: __bitbar __gitconfig __zshrc __install_divvy_preferences
+__copy-files: __xbar __gitconfig __zshrc __install_divvy_preferences
 
 env:
 	@echo $(FILES)
