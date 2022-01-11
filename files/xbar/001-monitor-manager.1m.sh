@@ -7,6 +7,8 @@
 # <xbar.desc>Helps you manage your monitors using via ddc</xbar.desc>
 # <xbar.image>https://raw.githubusercontent.com/simonpeier/bitbar-dadjokes-plugin/master/screenshot.png</xbar.image>
 # <xbar.dependencies>bash</xbar.dependencies>
+# <xbar.dependencies>mirror-displays</xbar.dependencies>
+# <xbar.dependencies>m1ddc</xbar.dependencies>
 # <xbar.abouturl>https://simonpeier.github.io/bitbar-dadjokes-plugin/</xbar.abouturl>
 
 function exists() {
