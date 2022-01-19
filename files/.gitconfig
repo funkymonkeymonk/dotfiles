@@ -2,7 +2,10 @@
   name  = Will Weaver
   email = monkey@buildingbananas.com
 [core]
+    # Consider a different editor once the new jetbrains editor comes out
 	editor = vim
+	whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+	excludesfile = ~/.gitignore_global
 [web]
 	browser = google-chrome
 [push]
@@ -15,28 +18,58 @@
   a = add
   aa = add .
   aaa = add --update
+  ai = add --interactive
   b = branch
+  br = branch -v
   bd = branch --delete
   c = commit
   cm = commit --message
   co = checkout
   cob = checkout -b
   com = checkout master
+  cp = cherry-pick
   d = diff
   da = diff HEAD
+  diff = diff --word-diff
   i = init
+  la = "!git config -l | grep alias | cut -c 7-"
+#   ld = log --pretty=format:"%h %ad %s" --date=short --all
+  ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+  lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
   lg = log --graph --oneline --decorate --all
-  ld = git log --pretty=format:"%h %ad %s" --date=short --all
+  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+  ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+  lp = log -p
+  mt = mergetool
   p = push
+  po = pull --rebase origin
+  rh = reset --hard
+  rhc = "!f(){ git reset --hard && git clean -f -d;}; f"
+  rs = reset --soft
+  rm = reset --mixed
   s = status
   st = stash
   sta = stash apply
   std = stash drop
-  stl = stash list
+#   stl = stash list
+  stl = stash list --pretty=format:"%C(green)%gd%Creset\\ %Creset%s%Creset" --decorate --date=relative
+  stll = stash list --pretty=format:"%C(green)%gd%Creset\\ %Cblue%cD%Creset\\ %Creset%s%Creset" --decorate
   stp = stash pop
   sts = stash save
+  stm = "!f() { git stash save --include-untracked "WIP: `date +"%Y-%d-%m-%H-%M-%S"`"; }; f"
+  stu = stash --include-untracked
+  stn = stash save --include-untracked
+  stp = stash pop
+  sta = stash apply
+  std = stash show -p
   up = pull --rebase --prune
 [hub]
-  protocol = https
+  protocol = ssh
 [credential]
   helper = osxkeychain
+
+# Review my choice of mergetools. Right now I'm using git heavily through the intellij IDE
+# I'd like to have a consistent choice on the cli as well.
+# [merge]
+# [mergetool]
+# [difftool]

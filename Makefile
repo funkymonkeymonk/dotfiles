@@ -45,6 +45,7 @@ __gitconfig:
 	# This could use a more complex merge strategy but this will
 	# prevent me from blowing away local changes
 	rsync --ignore-existing ./files/.gitconfig ~/.gitconfig
+	rsync --ignore-existing ./files/.gitignore_global ~/.gitignore_global
 
 __zshrc:
 	# This could use a more complex merge strategy but this will
