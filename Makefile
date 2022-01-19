@@ -58,6 +58,12 @@ __copy-files: __xbar __gitconfig __install_divvy_preferences
 __switch-remote-to-ssh:
 	git remote set-url origin git@github.com:funkymonkeymonk/dotfiles.git
 
+__copy_sourced_configs: ./files/sourced_configs/*
+	mkdir -p ~/dotfiles
+	for file in $^; do \
+		rsync --ignore-existing $${file} ~/dotfiles/; \
+	done
+
 __zshrc:
 	# This could use a more complex merge strategy but this will
 	# prevent me from blowing away local changes
@@ -68,7 +74,7 @@ __p10k:
 	# prevent me from blowing away local changes
 	rsync --ignore-existing ./files/.p10k.zsh ~/.p10k.zsh
 
-__shell-config: __zshrc __p10k
+__shell-config: __copy_sourced_configs __p10k __zshrc
 
 env:
 	@echo $(FILES)

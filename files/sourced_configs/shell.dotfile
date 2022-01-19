@@ -1,10 +1,7 @@
 # ---------------------------------------------------------------------
 # Aliases
 # ---------------------------------------------------------------------
-alias ..='cd ..'
 alias clear='echo USE CTRL + L'
-alias g=git
-alias ll='ls -la'
 alias lrat='ls -lrat'
 alias m=make
 
