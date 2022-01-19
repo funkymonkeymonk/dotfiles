@@ -60,10 +60,13 @@ __install_divvy_preferences:
 
 __copy-files: __xbar __gitconfig __zshrc __install_divvy_preferences
 
+__switch-remote-to-ssh:
+	git remote set-url origin git@github.com:funkymonkeymonk/dotfiles.git
+
 env:
 	@echo $(FILES)
 
-run: __brew __copy-files __osx-preferences
+run: __brew __copy-files __osx-preferences __switch-remote-to-ssh
 
 cleanup:
 	cat $(FILES) | brew bundle cleanup --file=-
