@@ -7,7 +7,8 @@ fi
 
 export PATH="/usr/local/sbin:$PATH"
 
-source /usr/local/share/antigen/antigen.zsh
+# Source antigen
+source /opt/homebrew/share/antigen/antigen.zsh
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh

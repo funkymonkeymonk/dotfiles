@@ -47,26 +47,33 @@ __gitconfig:
 	rsync --ignore-existing ./files/.gitconfig ~/.gitconfig
 	rsync --ignore-existing ./files/.gitignore_global ~/.gitignore_global
 
+__install_divvy_preferences:
+	# Someday I will probably make a change and this will override it.
+    # TODO: Request permission before overwriting
+	open `cat ./files/divvy_preferences`
+	#osascript -e 'tell application "Divvy" to quit' -e 'delay 2' -e 'tell application "Divvy" to activate'
+
+__copy-files: __xbar __gitconfig __install_divvy_preferences
+
+__switch-remote-to-ssh:
+	git remote set-url origin git@github.com:funkymonkeymonk/dotfiles.git
+
 __zshrc:
 	# This could use a more complex merge strategy but this will
 	# prevent me from blowing away local changes
 	rsync --ignore-existing ./files/.zshrc ~/.zshrc
 
-# Someday I will probably make a change and this will override it.
-# TODO: Request permission before overwriting
-__install_divvy_preferences:
-	open `cat ./files/divvy_preferences`
-	#osascript -e 'tell application "Divvy" to quit' -e 'delay 2' -e 'tell application "Divvy" to activate'
+__p10k:
+	# This could use a more complex merge strategy but this will
+	# prevent me from blowing away local changes
+	rsync --ignore-existing ./files/.p10k.zsh ~/.p10k.zsh
 
-__copy-files: __xbar __gitconfig __zshrc __install_divvy_preferences
-
-__switch-remote-to-ssh:
-	git remote set-url origin git@github.com:funkymonkeymonk/dotfiles.git
+__shell-config: __zshrc __p10k
 
 env:
 	@echo $(FILES)
 
-run: __brew __copy-files __osx-preferences __switch-remote-to-ssh
+run: __brew __copy-files __shell-config __osx-preferences __switch-remote-to-ssh
 
 cleanup:
 	cat $(FILES) | brew bundle cleanup --file=-
