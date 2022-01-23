@@ -14,10 +14,13 @@ source /opt/homebrew/share/antigen/antigen.zsh
 antigen use oh-my-zsh
 
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle git
-antigen bundle command-not-found
-antigen bundle zsh-users/zsh-completions
-antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundles <<EOBUNDLES
+  git
+  command-not-found
+  zsh-users/zsh-completions
+  zsh-users/zsh-syntax-highlighting
+  asdf
+EOBUNDLES
 
 # Load the theme.
 antigen theme romkatv/powerlevel10k

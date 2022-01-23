@@ -1,5 +1,6 @@
 # Development tools
 brew "ansible"
+brew "asdf"
 brew "awscli"
 brew "bind"
 brew "exercism"
