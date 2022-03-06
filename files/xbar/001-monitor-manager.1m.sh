@@ -8,8 +8,12 @@
 # <xbar.image>https://raw.githubusercontent.com/simonpeier/bitbar-dadjokes-plugin/master/screenshot.png</xbar.image>
 # <xbar.dependencies>bash</xbar.dependencies>
 # <xbar.dependencies>mirror-displays</xbar.dependencies>
-# <xbar.dependencies>m1ddc</xbar.dependencies>
+# <xbar.dependencies>$DDC_APP</xbar.dependencies>
 # <xbar.abouturl>https://simonpeier.github.io/bitbar-dadjokes-plugin/</xbar.abouturl>
+
+MIRROR_APP=/opt/homebrew/bin/mirror
+# Switch to ddcctl once it works for m1 chips until then use $DDC_APP
+DDC_APP=/usr/local/bin/m1ddc
 
 function exists() {
   app=$1
@@ -19,32 +23,33 @@ function exists() {
 echo "Monitor Manager"
 echo "---"
 
-exists mirror
-echo "Mirror Screens| shell=mirror terminal=false"
+exists $MIRROR_APP
+echo "Mirror Screens| shell=$MIRROR_APP terminal=false"
 echo "---"
-# Switch to ddcctl once it works for m1 chips until then use m1ddc
-exists m1ddc
+exists $DDC_APP
 
 screen=1
-screens=$(m1ddc display list | wc -l)
-screens=2
+screens=$($DDC_APP display list | wc -l)
 
-# Can I remap the order of the screens based on their positions?
+# TODO: extract the id's into a file store that I load in.
+# TODO: figure out what the UX for naming monitors is like
+# TODO: Can I remap the order of the screens based on their positions?
 while [ "$screen" -le "$screens" ]; do
-  # Can I create friendly names for the monitor and have them match?
-  # This is a cludge that I'm not even sure will persist. I know that there is info available via ddc
-  if [ $screen -eq 1 ]; then
+  # TODO: for some reason this only works with a direct reference to m1ddc
+  id=$(/usr/local/bin/m1ddc display list | sed  's/.*(\(.*\))/\1/' | sed -n "${screen}p")
+
+  if [ $id == "10AC31A1-0000-0000-211E-0104B5502178" ]; then
     echo "Bottom Screen"
-  elif [ $screen -eq 2 ]; then
+  elif [ $id == "10AC31A1-0000-0000-181E-0104B5502178" ]; then
     echo "Top Screen"
   else
     echo "Screen $screen"
   fi
 
   # Is it possible to find out what input sources are available from the monitor
-  echo "-- HDMI 1| shell=m1ddc param1=display param2=$screen param3=set param4=input param5=17 refresh=true"
-  echo "-- HDMI 2| shell=m1ddc param1=display param2=$screen param3=set param4=input param5=17 refresh=true"
-  echo "-- Display Port| shell=m1ddc param1=display param2=$screen param3=set param4=input param5=15  refresh=true"
-  echo "-- USB C| shell=m1ddc param1=display param2=$screen param3=set param4=input param5=27 refresh=true"
+  echo "-- HDMI 1| shell=$DDC_APP param1=display param2=$screen param3=set param4=input param5=17 refresh=true"
+  echo "-- HDMI 2| shell=$DDC_APP param1=display param2=$screen param3=set param4=input param5=17 refresh=true"
+  echo "-- Display Port| shell=$DDC_APP param1=display param2=$screen param3=set param4=input param5=15  refresh=true"
+  echo "-- USB C| shell=$DDC_APP param1=display param2=$screen param3=set param4=input param5=27 refresh=true"
   ((screen=screen+1))
 done
