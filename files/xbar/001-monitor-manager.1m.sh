@@ -43,7 +43,7 @@ while [ "$screen" -le "$screens" ]; do
   elif [ $id == "10AC31A1-0000-0000-181E-0104B5502178" ]; then
     echo "Top Screen"
   else
-    echo "Screen $screen"
+    echo "Screen $id"
   fi
 
   # Is it possible to find out what input sources are available from the monitor
