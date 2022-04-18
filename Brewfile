@@ -29,4 +29,5 @@ cask "sensei"
 cask "spotify"
 cask "zoom"
 cask "zsa-wally"
-
+cask "pocket-casts"
+cask "todoist"
