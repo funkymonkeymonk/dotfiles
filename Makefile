@@ -37,7 +37,8 @@ __brew:
 	cat $(FILES) | brew bundle --file=-
 
 __xbar:
-	ln -sf $(PWD)/files/xbar/ ~/Library/Application\ Support/xbar/plugins
+	rm -rf ~/Library/Application\ Support/xbar/plugins
+	ln -sf $(PWD)/files/xbar ~/Library/Application\ Support/xbar/plugins
 	# Refresh xbar
 	open xbar://app.xbarapp.com/refreshAllPlugins
 

@@ -23,6 +23,8 @@ function exists() {
 echo "Monitor Manager"
 echo "---"
 
+echo "Fix displays| shell=$HOME/fix_displays.sh terminal=false"
+
 exists $MIRROR_APP
 echo "Mirror Screens| shell=$MIRROR_APP terminal=false"
 echo "---"

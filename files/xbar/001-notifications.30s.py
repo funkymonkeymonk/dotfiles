@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env /Users/monkey/.pyenv/shims/python
 # -*- coding: utf-8 -*-
 
 # <xbar.title>GitHub Notifications</xbar.title>
