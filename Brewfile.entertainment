@@ -1,3 +1,6 @@
 # Entertianment
 cask "steam"
 cask "discord"
+cask "deezer"
+cask "vlc"
+
