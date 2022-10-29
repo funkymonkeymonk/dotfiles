@@ -32,3 +32,5 @@ cask "pocket-casts"
 cask "raycast"
 cask "obsidian"
 brew "syncthing"
+
+mas "Hand Mirror", id: 1502839586
