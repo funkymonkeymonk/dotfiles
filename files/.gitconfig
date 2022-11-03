@@ -2,18 +2,21 @@
   name  = Will Weaver
   email = monkey@buildingbananas.com
 [core]
-    # Consider a different editor once the new jetbrains editor comes out
-	editor = vim
-	whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
-	excludesfile = ~/.gitignore_global
+# Consider a different editor once the new jetbrains editor comes out
+  editor = vim
+  whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+  excludesfile = ~/.gitignore_global
 [web]
-	browser = google-chrome
+  browser = google-chrome
+[rerere]
+  enabled = true
+  autoupdate = true
 [push]
-	default = simple
+  default = simple
 [color]
-	ui = auto
+  ui = auto
 [github]
-	user = funkymonkeymonk
+  user = funkymonkeymonk
 [alias]
   a = add
   aa = add .
