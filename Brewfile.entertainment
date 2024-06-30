@@ -1,6 +1,6 @@
-# Entertianment
+# Entertainment
 cask "steam"
 cask "discord"
 cask "deezer"
 cask "vlc"
-
+cask "pocket-casts"
