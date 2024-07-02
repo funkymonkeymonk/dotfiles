@@ -1,8 +1,5 @@
 tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/core"
 tap "fcanas/tap"
-tap "homebrew/cask-drivers"
 tap "hashicorp/tap"
 tap "homebrew/services"
 tap "jakehilborn/jakehilborn"
