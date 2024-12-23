@@ -4,3 +4,5 @@ main.retry
 *.lock.json
 Brewfile.site-specific
 env
+files/.DS_Store
+files/xbar/.DS_Store
