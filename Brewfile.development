@@ -32,3 +32,12 @@ brew "imagemagick"
 brew "node"
 brew "python@3.10"
 brew "go"
+brew "uv"
+brew "tilt"
+
+cask "block-goose"
+cask "loom"
+cask "ollama"
+
+brew "block-goose-cli"
+
